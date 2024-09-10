@@ -2,6 +2,10 @@
 
 name: Buildscript maintenance
 
+permissions:
+  contents: write
+  deployments: write
+
 on:
   push:
     branches: [ master, main ]
@@ -31,11 +35,8 @@ jobs:
 
       - name: Create Pull Request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.BUILDSCRIPT_MAINTENANCE_TOKEN }}
+        uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.BUILDSCRIPT_MAINTENANCE_TOKEN }}
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           add-paths: build.gradle
