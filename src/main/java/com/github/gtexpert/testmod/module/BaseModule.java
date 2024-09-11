@@ -1,7 +1,7 @@
-package gtexpert.testmod.module;
+package com.github.gtexpert.testmod.module;
 
-import gtexpert.testmod.api.modules.IModule;
-import gtexpert.testmod.api.util.ModUtility;
+import com.github.gtexpert.testmod.api.modules.IModule;
+import com.github.gtexpert.testmod.api.util.ModUtility;
 import net.minecraft.util.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 

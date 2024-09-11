@@ -1,11 +1,11 @@
-package gtexpert.testmod.module;
+package com.github.gtexpert.testmod.module;
 
 import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import gtexpert.testmod.api.ModValues;
-import gtexpert.testmod.api.modules.*;
+import com.github.gtexpert.testmod.api.ModValues;
+import com.github.gtexpert.testmod.api.modules.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;

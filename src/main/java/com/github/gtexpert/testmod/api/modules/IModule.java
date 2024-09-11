@@ -1,4 +1,4 @@
-package gtexpert.testmod.api.modules;
+package com.github.gtexpert.testmod.api.modules;
 
 
 import java.util.Collections;

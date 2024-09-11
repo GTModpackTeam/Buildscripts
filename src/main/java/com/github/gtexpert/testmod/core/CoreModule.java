@@ -1,11 +1,11 @@
-package gtexpert.testmod.core;
+package com.github.gtexpert.testmod.core;
 
-import gtexpert.testmod.Tags;
-import gtexpert.testmod.api.ModValues;
-import gtexpert.testmod.api.modules.IModule;
-import gtexpert.testmod.api.modules.TModule;
-import gtexpert.testmod.common.CommonProxy;
-import gtexpert.testmod.module.Modules;
+import com.github.gtexpert.testmod.Tags;
+import com.github.gtexpert.testmod.api.ModValues;
+import com.github.gtexpert.testmod.api.modules.IModule;
+import com.github.gtexpert.testmod.api.modules.TModule;
+import com.github.gtexpert.testmod.common.CommonProxy;
+import com.github.gtexpert.testmod.module.Modules;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
@@ -23,8 +23,8 @@ import org.jetbrains.annotations.NotNull;
 public class CoreModule implements IModule {
     public static final Logger logger = LogManager.getLogger(Tags.MODNAME + " Core");
     @SidedProxy(modId = ModValues.MODID,
-            clientSide = "gtexpert.testmod.client.ClientProxy",
-            serverSide = "gtexpert.testmod.common.CommonProxy")
+            clientSide = "com.github.gtexpert.testmod.client.ClientProxy",
+            serverSide = "com.github.gtexpert.testmod.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Override

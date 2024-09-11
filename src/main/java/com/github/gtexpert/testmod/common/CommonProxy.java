@@ -1,6 +1,6 @@
-package gtexpert.testmod.common;
+package com.github.gtexpert.testmod.common;
 
-import gtexpert.testmod.api.ModValues;
+import com.github.gtexpert.testmod.api.ModValues;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 

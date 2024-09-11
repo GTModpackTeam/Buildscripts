@@ -1,8 +1,8 @@
-package gtexpert.testmod;
+package com.github.gtexpert.testmod;
 
-import gtexpert.testmod.api.util.ModLog;
-import gtexpert.testmod.module.ModuleManager;
-import gtexpert.testmod.module.Modules;
+import com.github.gtexpert.testmod.api.util.ModLog;
+import com.github.gtexpert.testmod.module.ModuleManager;
+import com.github.gtexpert.testmod.module.Modules;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;

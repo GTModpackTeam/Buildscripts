@@ -1,4 +1,4 @@
-package gtexpert.testmod.api.util;
+package com.github.gtexpert.testmod.api.util;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

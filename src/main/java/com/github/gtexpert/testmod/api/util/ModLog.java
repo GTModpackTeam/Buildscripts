@@ -1,6 +1,6 @@
-package gtexpert.testmod.api.util;
+package com.github.gtexpert.testmod.api.util;
 
-import gtexpert.testmod.Tags;
+import com.github.gtexpert.testmod.Tags;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
