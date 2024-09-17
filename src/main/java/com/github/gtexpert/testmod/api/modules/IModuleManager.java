@@ -1,7 +1,8 @@
 package com.github.gtexpert.testmod.api.modules;
 
-import com.github.gtexpert.testmod.api.util.ModUtility;
 import net.minecraft.util.ResourceLocation;
+
+import com.github.gtexpert.testmod.api.util.ModUtility;
 
 public interface IModuleManager {
 

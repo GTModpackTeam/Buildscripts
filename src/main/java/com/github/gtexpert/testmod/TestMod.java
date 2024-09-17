@@ -1,26 +1,31 @@
 package com.github.gtexpert.testmod;
 
-import com.github.gtexpert.testmod.api.util.ModLog;
-import com.github.gtexpert.testmod.module.ModuleManager;
-import com.github.gtexpert.testmod.module.Modules;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import com.github.gtexpert.testmod.api.ModValues;
+import com.github.gtexpert.testmod.api.util.ModLog;
+import com.github.gtexpert.testmod.module.ModuleManager;
+import com.github.gtexpert.testmod.module.Modules;
+
 @Mod(
-        modid = Tags.MODID,
-        name = Tags.MODNAME,
-        version = Tags.VERSION,
-        dependencies = ""
-)
+     modid = Tags.MODID,
+     name = Tags.MODNAME,
+     version = Tags.VERSION,
+     dependencies = "")
 public class TestMod {
+
     private ModuleManager moduleManager;
 
     @Mod.EventHandler
@@ -120,5 +125,12 @@ public class TestMod {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void registerRecipesLowest(RegistryEvent.Register<IRecipe> event) {
         moduleManager.registerRecipesLowest(event);
+    }
+
+    @SubscribeEvent
+    public static void syncConfigValues(ConfigChangedEvent.OnConfigChangedEvent event) {
+        if (event.getModID().equals(ModValues.MODID)) {
+            ConfigManager.sync(ModValues.MODID, Config.Type.INSTANCE);
+        }
     }
 }

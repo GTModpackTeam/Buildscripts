@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import com.github.gtexpert.testmod.api.ModValues;
-import com.github.gtexpert.testmod.api.modules.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -23,6 +21,9 @@ import org.apache.logging.log4j.Logger;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+
+import com.github.gtexpert.testmod.api.ModValues;
+import com.github.gtexpert.testmod.api.modules.*;
 
 public class ModuleManager implements IModuleManager {
 

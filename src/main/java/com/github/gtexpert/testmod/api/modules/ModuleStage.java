@@ -1,6 +1,5 @@
 package com.github.gtexpert.testmod.api.modules;
 
-
 /**
  * Basically {@link net.minecraftforge.fml.common.LoaderState} but only for launch stages.
  * Also includes early module stages.
