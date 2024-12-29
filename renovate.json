@@ -7,9 +7,6 @@
   "schedule": [
     "every weekend"
   ],
-  "enabledManagers": [
-    "java"
-  ],
   "automerge": false,
   "packageRules": [
     {
