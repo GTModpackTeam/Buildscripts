@@ -16,8 +16,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import com.github.gtexpert.testmod.api.ModValues;
 import com.github.gtexpert.testmod.api.util.ModLog;
-import com.github.gtexpert.testmod.module.ModuleManager;
-import com.github.gtexpert.testmod.module.Modules;
+import com.github.gtexpert.testmod.modules.ModuleManager;
+import com.github.gtexpert.testmod.modules.Modules;
 
 @Mod(
      modid = Tags.MODID,

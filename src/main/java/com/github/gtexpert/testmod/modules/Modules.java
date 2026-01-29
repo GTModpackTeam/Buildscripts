@@ -1,4 +1,4 @@
-package com.github.gtexpert.testmod.module;
+package com.github.gtexpert.testmod.modules;
 
 import com.github.gtexpert.testmod.api.ModValues;
 import com.github.gtexpert.testmod.api.modules.IModuleContainer;

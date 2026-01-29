@@ -1,4 +1,4 @@
-package com.github.gtexpert.testmod.module;
+package com.github.gtexpert.testmod.modules;
 
 import java.io.File;
 import java.util.*;

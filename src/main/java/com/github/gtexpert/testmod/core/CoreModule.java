@@ -1,6 +1,7 @@
 package com.github.gtexpert.testmod.core;
 
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +13,7 @@ import com.github.gtexpert.testmod.api.ModValues;
 import com.github.gtexpert.testmod.api.modules.IModule;
 import com.github.gtexpert.testmod.api.modules.TModule;
 import com.github.gtexpert.testmod.common.CommonProxy;
-import com.github.gtexpert.testmod.module.Modules;
+import com.github.gtexpert.testmod.modules.Modules;
 
 @TModule(
          moduleID = Modules.MODULE_CORE,
@@ -32,6 +33,9 @@ public class CoreModule implements IModule {
     public @NotNull Logger getLogger() {
         return logger;
     }
+
+    @Override
+    public void construction(FMLConstructionEvent event) {}
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {

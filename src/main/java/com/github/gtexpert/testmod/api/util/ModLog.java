@@ -7,5 +7,7 @@ import com.github.gtexpert.testmod.Tags;
 
 public class ModLog {
 
-    public static Logger logger = LogManager.getLogger(Tags.MODNAME);
+    private ModLog() {}
+
+    public static final Logger logger = LogManager.getLogger(Tags.MODNAME);
 }
