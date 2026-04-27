@@ -70,6 +70,6 @@ jobs:
       - name: Comment to PR if from fork and formatting failed
         if: failure() && steps.build.conclusion == 'failure' && steps.fork-check.outputs.is_fork == 'true'
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} --body "I can't get automatic fixes by spotless in CI. Please run '. /gradlew spotlessApply' and push again."
+          gh pr comment ${{ github.event.pull_request.number }} --body "I can't get automatic fixes by spotless in CI. Please run './gradlew spotlessApply' and push again."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -103,6 +103,8 @@ propertyDefaultIfUnset("mavenArtifactGroup", getDefaultArtifactGroup())
 propertyDefaultIfUnset("enableModernJavaSyntax", false)
 propertyDefaultIfUnset("enableSpotless", false)
 propertyDefaultIfUnset("enableJUnit", false)
+propertyDefaultIfUnset("buildscriptRepositoryOwner", "GTModpackTeam")
+propertyDefaultIfUnset("buildscriptRepositoryName", "Buildscripts")
 propertyDefaultIfUnsetWithEnvVar("deploymentDebug", false, "DEPLOYMENT_DEBUG")
 
 
@@ -470,6 +472,10 @@ repositories {
         maven {
             name 'GTCEu Maven'
             url 'https://maven.gtceu.com'
+        }
+        maven {
+            name 'Mod Maven'
+            url 'https://modmaven.dev'
         }
     }
     if (usesMixins.toBoolean() || forceEnableMixins.toBoolean()) {
@@ -1419,12 +1425,12 @@ if (!project.getGradle().startParameter.isOffline() && !Boolean.getBoolean('DISA
     }
 }
 
-static URL availableBuildScriptUrl() {
-    new URL("https://raw.githubusercontent.com/GregTechCEu/Buildscripts/master/build.gradle")
+URL availableBuildScriptUrl() {
+    new URL("https://raw.githubusercontent.com/${project.buildscriptRepositoryOwner}/${project.buildscriptRepositoryName}/master/build.gradle")
 }
 
-static URL availableSettingsGradleUrl() {
-    new URL("https://raw.githubusercontent.com/GregTechCEu/Buildscripts/master/settings.gradle")
+URL availableSettingsGradleUrl() {
+    new URL("https://raw.githubusercontent.com/${project.buildscriptRepositoryOwner}/${project.buildscriptRepositoryName}/master/settings.gradle")
 }
 
 boolean performBuildScriptUpdate() {

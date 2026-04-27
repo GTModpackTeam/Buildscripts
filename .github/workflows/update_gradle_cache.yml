@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   update-cache:
-    name: Update Grade Cache
+    name: Update Gradle Cache
     runs-on: ubuntu-latest
 
     steps:
