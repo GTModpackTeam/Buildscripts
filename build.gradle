@@ -626,6 +626,8 @@ test {
     if (enableJUnit.toBoolean()) {
         useJUnitPlatform()
     }
+
+    failOnNoDiscoveredTests = false
 }
 
 
