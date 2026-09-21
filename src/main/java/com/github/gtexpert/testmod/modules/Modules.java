@@ -2,7 +2,9 @@ package com.github.gtexpert.testmod.modules;
 
 import com.github.gtexpert.testmod.api.ModValues;
 import com.github.gtexpert.testmod.api.modules.IModuleContainer;
+import com.github.gtexpert.testmod.api.modules.ModuleContainer;
 
+@ModuleContainer
 public class Modules implements IModuleContainer {
 
     public static final String MODULE_CORE = "core";

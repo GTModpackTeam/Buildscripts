@@ -23,16 +23,17 @@ plugins {
     id 'base'
     id 'eclipse'
     id 'maven-publish'
-    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.1.9'
-    id 'com.gtnewhorizons.retrofuturagradle' version '2.0.2'
-    id 'net.darkhax.curseforgegradle' version '1.1.25' apply false
-    id 'com.modrinth.minotaur' version '2.8.7' apply false
-    id 'com.diffplug.spotless' version '6.13.0' apply false
-    id 'com.palantir.git-version' version '3.0.0' apply false
-    id 'com.gradleup.shadow' version '8.3.5' apply false
-    id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
-    id 'org.jetbrains.kotlin.kapt' version '1.8.0' apply false
-    id 'com.google.devtools.ksp' version '1.8.0-1.0.9' apply false
+    id 'org.jetbrains.gradle.plugin.idea-ext' version '1.4.1'
+    id 'com.gtnewhorizons.retrofuturagradle' version '2.0.4'
+    id 'net.darkhax.curseforgegradle' version '1.3.33' apply false
+    id 'com.modrinth.minotaur' version '2.10.0' apply false
+    id 'com.diffplug.spotless' version '8.10.2' apply false
+    id 'com.palantir.git-version' version '5.1.0' apply false
+    id 'com.gradleup.shadow' version '9.6.1' apply false
+    id 'org.jetbrains.kotlin.jvm' version '2.4.20' apply false
+    id 'org.jetbrains.kotlin.kapt' version '2.4.20' apply false
+    id 'com.google.devtools.ksp' version '2.3.12' apply false
+    id "com.diffplug.blowdryerSetup" version '1.8.0' apply false
 }
 
 def out = services.get(StyledTextOutputFactory).create('an-output')
@@ -141,9 +142,6 @@ if (accessTransformersFile) {
 }
 
 if (usesMixins.toBoolean()) {
-    if (mixinsPackage.isEmpty()) {
-        throw new GradleException("\"usesMixins\" requires \"mixinsPackage\" to be set!")
-    }
     final String mixinPackagePath = mixinsPackage.toString().replaceAll('\\.', '/')
     targetPackageJava = javaSourceDir + modGroupPath + '/' + mixinPackagePath
     targetPackageScala = scalaSourceDir + modGroupPath + '/' + mixinPackagePath
@@ -238,13 +236,13 @@ if (enableSpotless.toBoolean()) {
             removeUnusedImports()
             endWithNewline()
             //noinspection GroovyAssignabilityCheck
-            eclipse('4.19.0').configFile(formatFile)
+            eclipse().configFile(formatFile)
         }
         kotlin {
             target 'src/*/kotlin/**/*.kt'
 
             toggleOffOn()
-            ktfmt('0.39')
+            ktfmt('0.64')
 
             trimTrailingWhitespace()
             indentWithSpaces(4)
@@ -252,7 +250,7 @@ if (enableSpotless.toBoolean()) {
         }
         scala {
             target 'src/*/scala/**/*.scala'
-            scalafmt('3.7.1')
+            scalafmt('3.11.5')
         }
     }
 }
@@ -531,8 +529,8 @@ dependencies {
     }
 
     if (enableJUnit.toBoolean()) {
-        testImplementation 'org.hamcrest:hamcrest:2.2'
-        testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+        testImplementation 'org.hamcrest:hamcrest:3.0'
+        testImplementation 'org.junit.jupiter:junit-jupiter:5.13.4'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
@@ -542,7 +540,7 @@ dependencies {
             transitive = false
         }
         // workaround for https://github.com/bsideup/jabel/issues/174
-        annotationProcessor 'net.java.dev.jna:jna-platform:5.16.0'
+        annotationProcessor 'net.java.dev.jna:jna-platform:5.19.1'
         // Allow jdk.unsupported classes like sun.misc.Unsafe, workaround for JDK-8206937 and fixes Forge crashes in tests.
         patchedMinecraft 'me.eigenraven.java8unsupported:java-8-unsupported-shim:1.0.0'
 
@@ -554,8 +552,8 @@ dependencies {
         testCompileOnly "me.eigenraven.java8unsupported:java-8-unsupported-shim:1.0.0"
     }
 
-    compileOnlyApi 'org.jetbrains:annotations:26.0.1'
-    annotationProcessor 'org.jetbrains:annotations:26.0.1'
+    compileOnlyApi 'org.jetbrains:annotations:26.1.0'
+    annotationProcessor 'org.jetbrains:annotations:26.1.0'
     patchedMinecraft('net.minecraft:launchwrapper:1.12') {
         transitive = false
     }
@@ -1157,7 +1155,7 @@ def getChangelog() {
 
 // Buildscript updating
 
-def buildscriptGradleVersion = '9.2.0'
+def buildscriptGradleVersion = '9.5.0'
 
 tasks.named('wrapper', Wrapper).configure {
     gradleVersion = buildscriptGradleVersion
